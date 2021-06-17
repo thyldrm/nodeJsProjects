@@ -1,0 +1,33 @@
+<%- include("partials/_header.ejs") -%>
+
+<%- include("partials/_navigation.ejs") -%>
+
+
+<section class="page-section" id="contact">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">EDIT</h2>
+            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+        </div>
+       
+        <form method="POST" action="/photos/<%= photo._id %>?_method=PUT" id="contactForm" encType="multipart/form-data">
+            <div class="row align-items-stretch mb-5">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        
+                        <input class="form-control" name="title" id="title" type="text" value="<%= photo.title %>" placeholder="Photo Title *" />
+                        <input class="form-control my-5" name="description" id="description" value="<%= photo.description %>" type="text" placeholder="Photo Description *" />
+                        <input class="form-control my-5" name="category" id="category" type="text" value="<%= photo.category %>" placeholder="Photo Category *" />
+                        <div class="text-center">
+                            <input class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit" value="GÜNCELLE"></input>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+
+
+<%- include("partials/_footer.ejs") -%>
