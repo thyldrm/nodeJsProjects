@@ -16,11 +16,6 @@ exports.getTrainerPage = (req,res)=>{
     });
 }
 
-exports.getGalleryPage = (req,res)=>{
-    res.render("gallery",{
-        page_name : "gallery"
-    });
-}
 
 exports.getContactPage = (req,res)=>{
     res.render("contact",{
