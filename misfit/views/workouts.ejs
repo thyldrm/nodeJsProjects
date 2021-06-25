@@ -27,7 +27,7 @@
                      <div class="row">
                         <% for(let i=0;i<workouts.length;i++){ %>
                         <div class="col-sm-6 col-md-4">
-                           <a class="gallery_img" href="images/gallery1.jpg">
+                           <a class="gallery_img" href="workouts/<%= workouts[i].slug %>">
                            <img src="images/gallery1.jpg" alt="Bridge">
                            <p style="color: aliceblue;"><%= workouts[i].name %></p>
                            <p style="color: aliceblue;"><%= workouts[i].difficulty %></p>
