@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const session = require('express-session')
+const MongoStore = require('connect-mongo');
 
 const ejs = require("ejs");
 const pageRoute = require("./routes/pageRoute");
@@ -32,6 +33,7 @@ app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true,
+  store: MongoStore.create({ mongoUrl: 'mongodb://localhost/misfit' })
 }))
 
 //--ROUTES
