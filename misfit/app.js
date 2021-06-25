@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const session = require('express-session')
 
 const ejs = require("ejs");
 const pageRoute = require("./routes/pageRoute");
@@ -21,16 +22,28 @@ mongoose.connect("mongodb://localhost/misfit", {
 //--TEMPLATE ENGINE
 app.set("view engine", "ejs");
 
+global.userIN = null;
+
 //--MIDDLEWARES
 app.use(express.static("public"));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+}))
 
 //--ROUTES
+app.use("*", (req,res,next)=>{
+  userIN = req.session.userID;
+  next();
+})
 app.use("/", pageRoute);
 app.use("/workouts", workoutRoute);
 app.use("/categories", categoryRoute);
 app.use("/users", userRoute);
+
 
 
 
