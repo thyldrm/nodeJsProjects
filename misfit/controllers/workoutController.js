@@ -1,4 +1,5 @@
 const Workout = require("../models/Workout")
+const Category = require("../models/Category")
 
 exports.createWorkout = async (req,res) => {
     try {
@@ -19,10 +20,26 @@ exports.createWorkout = async (req,res) => {
 
 exports.getAllWorkouts = async (req,res) => {
     try {
-        const workouts = await Workout.find();
+
+        const categorySlug = req.query.categories;
+
+        const category = await Category.findOne({slug:categorySlug})
+
+        let filter = {}
+
+        if(categorySlug){
+            filter = {category:category._id}
+        }
+
+        const workouts = await Workout.find(filter);
+
+        const categories = await Category.find();
+
+        
 
         res.status(200).render("workouts",{
             workouts,
+            categories,
             page_name : "workouts"
         })
 

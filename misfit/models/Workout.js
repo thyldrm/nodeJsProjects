@@ -23,7 +23,11 @@ const WorkoutSchema = new Schema ({
     slug: {
         type:String,
         unique: true,
-      }
+    },
+    category: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"category"
+    }
 });
 
 WorkoutSchema.pre('validate', function(next){

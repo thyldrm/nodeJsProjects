@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const ejs = require("ejs");
 const pageRoute = require("./routes/pageRoute");
 const workoutRoute = require("./routes/workoutRoute");
+const categoryRoute = require("./routes/categoryRoute");
 
 
 const app=express();
@@ -27,6 +28,7 @@ app.use(express.json());
 //--ROUTES
 app.use("/", pageRoute);
 app.use("/workouts", workoutRoute);
+app.use("/categories", categoryRoute);
 
 
 

@@ -1,5 +1,13 @@
 <%- include("partials/_header.ejs") -%> 
 <%- include("partials/_navigation.ejs")-%>
+<style>
+   li{
+      display: inline-block;
+   }
+   li a{
+      color:aliceblue;
+   }
+</style>
       <div class="back_re">
          <div class="container">
             <div class="row">
@@ -14,6 +22,13 @@
       <!-- gallery -->
       <div  class="gallery">
          <div class="container">
+            <div class="categories">
+               <ul >
+                  <% for(let i=0;i<categories.length;i++){ %>
+                  <li> <a href="/workouts?categories=<%= categories[i].slug %>"><%= categories[i].name %></a>  </li>
+                  <% } %>
+               </ul>
+            </div>
             <div class="row">
                <div class="col-md-12">
                   <div class="titlepage">
