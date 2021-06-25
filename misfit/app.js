@@ -5,6 +5,7 @@ const ejs = require("ejs");
 const pageRoute = require("./routes/pageRoute");
 const workoutRoute = require("./routes/workoutRoute");
 const categoryRoute = require("./routes/categoryRoute");
+const userRoute = require("./routes/userRoute");
 
 
 const app=express();
@@ -29,6 +30,7 @@ app.use(express.json());
 app.use("/", pageRoute);
 app.use("/workouts", workoutRoute);
 app.use("/categories", categoryRoute);
+app.use("/users", userRoute);
 
 
 
