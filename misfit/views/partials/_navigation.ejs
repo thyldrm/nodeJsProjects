@@ -42,6 +42,11 @@
                             <li class="nav-item">
                                <a class="nav-link <%= page_name === 'contact' && 'active' %>" href="/contact">Contact Us</a>
                             </li>
+                            <% if(userIN) { %>
+                              <li class="nav-item">
+                                 <a class="nav-link <%= page_name === 'dashboard' && 'active' %>" href="/users/dashboard">Dashboard</a>
+                              </li>
+                            <% } %>
                             <% if(!userIN) { %> 
                             <li class="nav-item">
                               <a class="nav-link <%= page_name === 'register' && 'active' %>" href="/register">Register</a>
@@ -52,7 +57,7 @@
                            <% } %>
                            <% if(userIN) { %> 
                               <li class="nav-item">
-                                <a class="nav-link" href="users/logout">Logout</a>
+                                <a class="nav-link" href="/users/logout">Logout</a>
                              </li>
                              <% } %>
                          </ul>
