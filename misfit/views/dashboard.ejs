@@ -1,6 +1,21 @@
 <%- include("partials/_header.ejs") -%> 
 <%- include("partials/_navigation.ejs")-%>
 <% if(user) { %>
-<p><%= user.name %></p>
+    <% if(user.role ==='customer') { %> 
+        <div class="all-title-box">
+			<div class="container text-center">
+				<h1><%= user.name %><span class="m_1">--CUSTOMER</span></h1>
+			</div>
+		</div>
+    <% } %>
+    <% if(user.role ==='trainer') { %> 
+
+		<div class="all-title-box">
+			<div class="container text-center">
+				<h1><%= user.name %><span class="m_1">--TRAINER</span></h1>
+			</div>
+		</div>
+		
+	<% } %>
 <% } %>
 <%- include("partials/_footer.ejs") -%>
