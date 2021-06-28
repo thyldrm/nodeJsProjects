@@ -5,10 +5,8 @@ exports.createWorkout = async (req,res) => {
     try {
         const workout = await Workout.create(req.body);
 
-        res.status(201).json({
-            status:"success",
-            workout,
-        })
+        res.status(201).redirect("/workouts");
+        
 
     }catch {
         res.status(400).json({
@@ -31,7 +29,7 @@ exports.getAllWorkouts = async (req,res) => {
             filter = {category:category._id}
         }
 
-        const workouts = await Workout.find(filter);
+        const workouts = await Workout.find(filter).sort('-createdAt');
 
         const categories = await Category.find();
 

@@ -16,7 +16,7 @@ const WorkoutSchema = new Schema ({
     difficulty: {
         type: String,
     },
-    createAt: {
+    createdAt: {
         type: Date,
         default: Date.now,
     },
